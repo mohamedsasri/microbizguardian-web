@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MicroBiz Guardian – AI-powered smart POS for small businesses</title>
+<meta name="description" content="MicroBiz Guardian is a smart POS that turns daily sales, stock and expenses into a business health score, early warnings and plain-language answers – in English, Sinhala and Tamil.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0E2A2B">
+<!-- TODO: replace with your real domain -->
+<link rel="canonical" href="https://www.microbizguardian.lk/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MicroBiz Guardian – know your shop’s health before problems grow">
+<meta property="og:description" content="Smart POS + business intelligence for small and micro businesses. English, Sinhala and Tamil.">
+<meta property="og:image" content="https://www.microbizguardian.lk/og-image.png">
+<meta property="og:url" content="https://www.microbizguardian.lk/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0E2A2B;--ink2:#17403F;--teal:#0F6B6B;--mint:#E3F1EE;--paper:#F8F9F6;--amber:#F2A93B;--coral:#C94432;--text:#1B2B2C;--muted:#4A5E60;--line:#D5E0DD;--r:14px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font:17px/1.6 "Source Sans 3",system-ui,sans-serif;color:var(--text);background:var(--paper)}
+h1,h2,h3{font-family:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;line-height:1.1;margin:0;letter-spacing:-.02em}
+h1{font-size:clamp(2.4rem,5.5vw,4rem);font-weight:800}h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800}h3{font-size:1.2rem;font-weight:600}
+p{margin:0}a{color:var(--teal)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 14px;z-index:99;border-radius:6px}.skip:focus{left:8px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}.lead{font-size:1.15rem;color:var(--muted);max-width:60ch;margin-top:16px}
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(14,42,43,.96);backdrop-filter:blur(8px)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font:800 1.15rem "Bricolage Grotesque",sans-serif}
+nav{display:flex;align-items:center;gap:26px}nav a{color:#CFE3E0;text-decoration:none;font-weight:600;font-size:.95rem}nav a:hover{color:#fff}
+.btn{display:inline-block;background:var(--amber);color:#1a1200!important;font-weight:600;padding:13px 24px;border-radius:999px;text-decoration:none;border:0;font:600 1rem "Source Sans 3",sans-serif;cursor:pointer}
+.btn:hover{background:#ffbb55}.btn.ghost{background:transparent;color:#fff!important;border:2px solid #4F7270}.btn.sm{padding:9px 18px}
+/* hero */
+.hero{background:linear-gradient(160deg,var(--ink),var(--ink2));color:#fff;padding:80px 0 96px}
+.hero .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.hero .lead{color:#BFD6D3}.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.badge{display:inline-block;border:1px solid #4F7270;color:#CFE3E0;border-radius:999px;padding:4px 14px;font-size:.9rem;margin-bottom:20px}
+.mock{background:#fff;color:var(--text);border-radius:18px;box-shadow:0 30px 70px rgba(0,0,0,.35);overflow:hidden}
+.mock .top{display:flex;gap:6px;padding:12px 16px;background:#EEF3F1;border-bottom:1px solid var(--line);align-items:center;font-size:.8rem;color:var(--muted)}
+.dot{width:10px;height:10px;border-radius:50%;background:#C5D2CF}
+.mbody{padding:20px;display:grid;grid-template-columns:130px 1fr;gap:18px;align-items:center}
+.ring{position:relative;width:130px;height:130px}.ring b{position:absolute;inset:0;display:grid;place-items:center;font:800 2rem "Bricolage Grotesque",sans-serif}
+.ring small{position:absolute;left:0;right:0;bottom:30px;text-align:center;font-size:.72rem;color:var(--muted)}
+.al{border-left:4px solid var(--amber);background:#FFF7E8;padding:9px 12px;border-radius:8px;font-size:.88rem;margin-bottom:8px}
+.al.r{border-color:var(--coral);background:#FCEDEA}.al strong{display:block}
+.chat{grid-column:1/-1;border-top:1px solid var(--line);padding-top:14px;display:grid;gap:8px;font-size:.88rem}
+.q{justify-self:end;background:var(--teal);color:#fff;padding:7px 14px;border-radius:14px 14px 2px 14px}
+.a{background:var(--mint);padding:9px 14px;border-radius:14px 14px 14px 2px}.a em{display:block;font-size:.76rem;color:var(--muted);margin-top:3px}
+.note{font-size:.8rem;color:#9DBBB8;margin-top:10px;text-align:center}
+/* problem */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.probs{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
+.probs li{padding:14px 18px;background:#fff;border:1px solid var(--line);border-radius:var(--r)}
+.probs strong{display:block}
+.sol{background:var(--ink);color:#fff;border-radius:22px;padding:36px}.sol p{color:#BFD6D3;margin-top:14px}
+.flow{display:grid;gap:14px;margin-top:24px;counter-reset:s;padding:0;list-style:none}
+.flow li{counter-increment:s;display:flex;gap:14px}
+.flow li::before{content:counter(s);flex:none;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#1a1200;font-weight:700;display:grid;place-items:center}
+/* features */
+#features{background:var(--mint)}
+.fg{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.card{background:#fff;border-radius:var(--r);padding:24px;border:1px solid var(--line)}
+.card.big{grid-column:span 2;background:var(--ink);color:#fff;border-color:var(--ink)}
+.card.big p{color:#BFD6D3}.card p{color:var(--muted);margin-top:8px;font-size:.98rem}
+.ic{width:42px;height:42px;border-radius:12px;background:var(--mint);display:grid;place-items:center;margin-bottom:14px}
+.ic svg{width:22px;height:22px;stroke:var(--teal);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.big .ic{background:var(--ink2)}.big .ic svg{stroke:var(--amber)}
+.langs{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}.langs span{background:var(--ink2);padding:5px 14px;border-radius:999px;font-weight:600}
+.bar-ch{display:flex;align-items:flex-end;gap:6px;height:56px;margin-top:16px}.bar-ch i{flex:1;background:var(--teal);border-radius:4px 4px 0 0}.bar-ch i.h{background:var(--coral)}
+/* trust */
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.trust .card{border-top:4px solid var(--teal)}
+/* team */
+#team{background:#fff}.tg{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:40px}
+.tm{text-align:center}.av{width:84px;height:84px;border-radius:50%;background:var(--mint);color:var(--teal);display:grid;place-items:center;margin:0 auto 14px;font:800 1.6rem "Bricolage Grotesque",sans-serif}
+.tm p{color:var(--muted);font-size:.92rem}
+/* signup */
+#join{background:var(--ink);color:#fff}.jg{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+#join .lead{color:#BFD6D3}form{background:#fff;color:var(--text);padding:30px;border-radius:20px;display:grid;gap:16px}
+label{font-weight:600;display:grid;gap:6px;font-size:.95rem}
+input,select{font:inherit;padding:12px 14px;border:1.5px solid #9DB3B0;border-radius:10px;background:#fff;color:var(--text)}
+.chk{display:flex;gap:10px;font-weight:400;font-size:.9rem;align-items:flex-start}.chk input{margin-top:5px;width:18px;height:18px}
+#msg{min-height:1.4em;font-weight:600;color:var(--teal)}
+.hp{position:absolute;left:-9999px}
+/* footer */
+footer{background:#081C1D;color:#9DBBB8;padding:48px 0 32px;font-size:.95rem}
+footer .fg2{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}footer a{color:#CFE3E0}footer h3{color:#fff;font-size:1rem;margin-bottom:10px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}.copy{border-top:1px solid #1d3b3c;margin-top:32px;padding-top:20px;font-size:.85rem}
+@media(max-width:900px){.hero .grid,.two,.jg{grid-template-columns:1fr}.fg{grid-template-columns:1fr 1fr}.trust{grid-template-columns:1fr}.tg{grid-template-columns:repeat(2,1fr)}footer .fg2{grid-template-columns:1fr}nav a:not(.btn){display:none}section{padding:64px 0}}
+@media(max-width:560px){.fg{grid-template-columns:1fr}.card.big{grid-column:auto}.mbody{grid-template-columns:1fr;justify-items:center}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header><div class="wrap bar">
+  <a class="brand" href="#top" aria-label="MicroBiz Guardian home">
+    <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 8 14v17c0 15 10 25 24 29 14-4 24-14 24-29V14z" fill="#F2A93B"/><path d="M20 38l8-9 6 6 10-13" fill="none" stroke="#0E2A2B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    MicroBiz Guardian</a>
+  <nav aria-label="Main"><a href="#problem">Problem</a><a href="#features">Features</a><a href="#team">Team</a><a href="#contact">Contact</a><a class="btn sm" href="#join">Join the waitlist</a></nav>
+</div></header>
+<main id="main">
+<div class="hero" id="top"><div class="wrap grid">
+  <div>
+    <span class="badge">In development · Sri Lanka</span>
+    <h1>Know how your shop is really doing, before problems grow.</h1>
+    <p class="lead">MicroBiz Guardian is a smart point-of-sale that turns your daily sales, stock and expenses into a clear health score, early warnings and plain answers, in English, Sinhala and Tamil.</p>
+    <div class="cta"><a class="btn" href="#join">Join the waitlist</a><a class="btn ghost" href="#features">See what it does</a></div>
+  </div>
+  <div>
+    <div class="mock" role="img" aria-label="Mock-up of the MicroBiz Guardian dashboard showing a business health score of 78, two early warnings and a Business Copilot answer">
+      <div class="top"><i class="dot"></i><i class="dot"></i><i class="dot"></i>&nbsp; Dashboard · Today</div>
+      <div class="mbody">
+        <div class="ring"><svg viewBox="0 0 120 120" width="130" height="130"><circle cx="60" cy="60" r="50" fill="none" stroke="#E3F1EE" stroke-width="12"/><circle cx="60" cy="60" r="50" fill="none" stroke="#0F6B6B" stroke-width="12" stroke-linecap="round" stroke-dasharray="245 314" transform="rotate(-90 60 60)"/></svg><b>78</b><small>Health</small></div>
+        <div><div class="al r"><strong>Stock running low</strong>Rice 5 kg may run out in about 3 days.</div><div class="al"><strong>Supplier price rise</strong>Sugar cost is up, so its margin is shrinking.</div></div>
+        <div class="chat"><div class="q">Why did profit drop this week?</div><div class="a">Mainly higher supplier costs on sugar and oil. <em>Based on 14 purchase records</em></div></div>
+      </div>
+    </div>
+    <p class="note">Illustrative mock-up with sample data</p>
+  </div>
+</div></div>
+
+<section id="problem"><div class="wrap two">
+  <div>
+    <h2>Small shops record everything, but still miss what it means.</h2>
+    <p class="lead">Sales sit in one app, stock in a notebook and expenses in a spreadsheet. Owners end up piecing the story together themselves.</p>
+    <ul class="probs">
+      <li><strong>Problems are noticed late</strong>A slow decline in sales or a rising cost is easy to miss day to day.</li>
+      <li><strong>Stock is guesswork</strong>Items run out, or money sits in products that do not sell.</li>
+      <li><strong>Reports are hard to read</strong>Most tools show numbers, not what to do about them.</li>
+      <li><strong>Tools speak one language</strong>Few systems work comfortably in Sinhala or Tamil.</li>
+    </ul>
+  </div>
+  <div class="sol">
+    <h2>One system that connects the dots.</h2>
+    <p>MicroBiz Guardian links checkout, stock, suppliers and expenses to an intelligence layer that explains what is changing and why.</p>
+    <ol class="flow">
+      <li><span><strong>Record</strong><br>Sell, restock and log expenses as usual.</span></li>
+      <li><span><strong>Understand</strong><br>See one health score and the evidence behind every warning.</span></li>
+      <li><span><strong>Decide</strong><br>Ask the Copilot, then choose your next step. You stay in control.</span></li>
+    </ol>
+  </div>
+</div></section>
+
+<section id="features"><div class="wrap">
+  <h2>Everything a shop needs, plus the insight most tools skip.</h2>
+  <p class="lead">Core POS tools and an AI layer, designed together from the start. Screens below are from our prototype design.</p>
+  <div class="fg">
+    <article class="card big"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div><h3>Business Health Score</h3><p>One number built from sales, profit, expenses, stock and cash flow, so you know at a glance whether things are improving.</p></article>
+    <article class="card big"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16v10H9l-5 4z"/></svg></div><h3>AI Business Copilot</h3><p>Ask questions in everyday language and get answers linked to your own records. If data is missing, it tells you.</p></article>
+    <article class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3 2 21h20zM12 10v5M12 18v.01"/></svg></div><h3>Early warnings</h3><p>Stock shortages, falling sales and profit changes flagged with the reasons.</p></article>
+    <article class="card"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></div><h3>Anomaly detection</h3><p>Spots unusual discounts, refunds, expenses and stock gaps for you to review. It never accuses anyone.</p></article>
+    <article class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div><h3>Smart POS</h3><p>Fast billing, returns and transaction history with stock updated automatically.</p></article>
+    <article class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5zM3 8l9 5 9-5M12 13v8"/></svg></div><h3>Inventory and suppliers</h3><p>Reorder suggestions, plus supplier price and delivery insights.</p></article>
+    <article class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 15l4-5 3 3 5-7"/></svg></div><h3>Profit and cash flow</h3><p>Expense tracking, profit reports and cash-flow forecasts.<span class="bar-ch" aria-hidden="true"><i style="height:40%"></i><i style="height:55%"></i><i style="height:48%"></i><i style="height:70%"></i><i class="h" style="height:30%"></i><i style="height:62%"></i></span></p></article>
+    <article class="card big"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div><h3>Works in your language</h3><p>Switch the interface and assistant between English, Sinhala and Tamil.</p><div class="langs" lang="mul"><span lang="en">English</span><span lang="si">සිංහල</span><span lang="ta">தமிழ்</span></div></article>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Built to support your decisions, never replace them.</h2>
+  <div class="trust">
+    <div class="card"><h3>You stay in charge</h3><p>Suggestions are advice. MicroBiz Guardian will not buy stock or act on its own.</p></div>
+    <div class="card"><h3>Evidence, not accusations</h3><p>Unusual activity is flagged for review with the records behind it. It never labels staff or customers as dishonest.</p></div>
+    <div class="card"><h3>Honest about gaps</h3><p>It does not invent figures. When records are incomplete, it says so.</p></div>
+  </div>
+</div></section>
+
+<section id="team"><div class="wrap">
+  <h2>The team behind it</h2>
+  <p class="lead">The People Behind MicroBiz Guardian</p>
+  <div class="tg">
+    <!-- TODO: replace names, add photos with alt text -->
+    <div class="tm"><div class="av" aria-hidden="true">M1</div><h3>Mohamed Sasri</h3><p>Product Owner and Developer</p></div>
+    <div class="tm"><div class="av" aria-hidden="true">M2</div><h3>Faathir Ahamed</h3><p>Backend architecture and UML modelling</p></div>
+    <div class="tm"><div class="av" aria-hidden="true">M3</div><h3>Adhayini</h3><p>UI/UX and localisation lead</p></div>
+    <div class="tm"><div class="av" aria-hidden="true">M4</div><h3>Zams Jaheed</h3><p>AI and data lead</p></div>
+    <div class="tm"><div class="av" aria-hidden="true">M5</div><h3>Thamiliny 5</h3><p>Web and QA lead</p></div>
+  </div>
+</div></section>
+
+<section id="join"><div class="wrap jg">
+  <div>
+    <h2>Be first to try MicroBiz Guardian.</h2>
+    <p class="lead">Join the waitlist to hear when early access opens and to help shape the product with your feedback. We will only email you about MicroBiz Guardian.</p>
+  </div>
+  <form id="wl" novalidate>
+    <label>Your name<input name="name" autocomplete="name" required></label>
+    <label>Email address<input name="email" type="email" autocomplete="email" required></label>
+    <label>Type of business<select name="type"><option>Grocery store</option><option>Retail shop</option><option>Small wholesaler</option><option>Other</option></select></label>
+    <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <label class="chk"><input type="checkbox" name="consent" required> <span>I agree to be contacted about MicroBiz Guardian. See the <a href="privacy.html">privacy notice</a>.</span></label>
+    <button class="btn" type="submit">Join the waitlist</button>
+    <p id="msg" role="status" aria-live="polite"></p>
+  </form>
+</div></section>
+</main>
+
+<footer id="contact"><div class="wrap">
+  <div class="fg2">
+    <div><h3>MicroBiz Guardian</h3><p>An AI-powered smart POS and business health tool for small and micro businesses in Sri Lanka.</p></div>
+    <div><h3>Contact</h3><ul><!-- TODO: real details --><li><a href="mailto:hello@microbizguardian.lk">hello@microbizguardian.lk</a></li><li>Colombo, Sri Lanka</li></ul></div>
+    <div><h3>Follow</h3><ul><!-- TODO: real links --><li><a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a></li><li><a href="https://www.facebook.com/" rel="noopener">Facebook</a></li><li><a href="https://github.com/" rel="noopener">GitHub</a></li></ul></div>
+  </div>
+  <p class="copy">© 2026 MicroBiz Guardian team · <a href="privacy.html">Privacy notice</a></p>
+</div></footer>
+<script>
+// Paste your Formspree / Google Apps Script / Netlify form endpoint here to receive sign-ups.
+const ENDPOINT="";
+const f=document.getElementById("wl"),m=document.getElementById("msg");
+f.addEventListener("submit",async e=>{
+  e.preventDefault();
+  const d=Object.fromEntries(new FormData(f));
+  if(d.website)return;
+  if(!d.name.trim()||!/^\S+@\S+\.\S+$/.test(d.email)){m.style.color="#C94432";m.textContent="Please enter your name and a valid email address.";return}
+  if(!f.consent.checked){m.style.color="#C94432";m.textContent="Please tick the box to agree to be contacted.";return}
+  m.style.color="#0F6B6B";
+  if(!ENDPOINT){location.href="mailto:hello@microbizguardian.lk?subject=Waitlist&body="+encodeURIComponent(`Name: ${d.name}\nEmail: ${d.email}\nBusiness: ${d.type}`);m.textContent="Opening your email app to send your details.";return}
+  try{const r=await fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({name:d.name,email:d.email,type:d.type})});
+    if(!r.ok)throw 0;f.reset();m.textContent="Thank you! You’re on the waitlist."}
+  catch{m.style.color="#C94432";m.textContent="Something went wrong. Please try again or email us directly."}
+});
+</script>
+</body>
+</html>
